@@ -12,6 +12,7 @@ pool:
 steps:
   - checkout: self
 
+  # CI - Compilacao e testes
   - task: Maven@4
     displayName: 'Compilar e executar testes'
     inputs:
@@ -25,6 +26,7 @@ steps:
       publishJUnitResults: true
       testResultsFiles: '**/surefire-reports/TEST-*.xml'
 
+  # CI - Preparar o JAR
   - task: CopyFiles@2
     displayName: 'Preparar JAR'
     inputs:
@@ -32,9 +34,20 @@ steps:
       Contents: 'projeto-0.0.1-SNAPSHOT.jar'
       TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
+  # CI - Publicar artefato
   - task: PublishBuildArtifacts@1
     displayName: 'Publicar artefato JAR'
     inputs:
       PathtoPublish: '$(Build.ArtifactStagingDirectory)'
       ArtifactName: 'zeladoria-api'
       publishLocation: 'Container'
+
+  # CD - Deploy no Azure App Service
+  - task: AzureWebApp@1
+    displayName: 'Deploy da API Zeladoria no Azure'
+    inputs:
+      azureSubscription: 'sc-zeladoria-azure'
+      appType: 'webAppLinux'
+      appName: 'app-zeladoria-rm550509'
+      package: '$(Build.ArtifactStagingDirectory)/projeto-0.0.1-SNAPSHOT.jar'
+      runtimeStack: 'JAVA|21-java21'
