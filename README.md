@@ -6,6 +6,7 @@ API REST para cadastro e gerenciamento de ocorrências de zeladoria urbana, dese
 > Turma: **2TDSPF**  
 > Integrante: **Cristian Alvaro Condori Paucara — RM550509**  
 > Modalidade: **projeto individual**
+> Link Video: **https://youtu.be/rOmYl124AT0**
 
 ## Sumário
 
@@ -287,7 +288,7 @@ projeto/
 - **Swagger UI:** https://app-zeladoria-rm550509.azurewebsites.net/swagger-ui/index.html
 - **Azure DevOps:** https://dev.azure.com/RM550509/GS2026-Zeladoria
 - **Pipeline:** https://dev.azure.com/RM550509/GS2026-Zeladoria/_build
-- **Vídeo de apresentação:** **[inserir o link do YouTube após a gravação e antes da entrega]**
+- **Vídeo de apresentação:** **https://youtu.be/rOmYl124AT0**
 
 ---
 
